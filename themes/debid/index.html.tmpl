@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title><TMPL_VAR name></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="assets/css/bootswatch.min.css">
+  <link rel="stylesheet" href="assets/css/flatly/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/general.css">
+	<link rel="alternate" type="application/rss+xml" href="<TMPL_VAR link>rss20.xml" title="<TMPL_VAR name> RSS" />
+<!--		<TMPL_IF feedtype>
+			<link rel="alternate" href="<TMPL_VAR feed ESCAPE="HTML">" title="<TMPL_VAR channel_title_plain ESCAPE="HTML">" type="application/<TMPL_VAR feedtype>+xml">
+		</TMPL_IF> -->
+</head>
+
+<body`>
+    <div class="navbar navbar-fixed-top">
+      <div class="container">
+        <a href="<TMPL_VAR link>" title="<TMPL_VAR name>" class="navbar-brand"><span><TMPL_VAR name></span></a>
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="nav-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="http://www.debian.or.id">Debian Indonesia</a>
+            </li>
+            <li>
+              <a href="http://www.debian.org">Debian</a>
+            </li>
+          </ul>
+
+<!--          <ul class="nav navbar-nav pull-right">-->
+<!--            <li><a href="http://builtwithbootstrap.com/" target="_blank">Built With Bootstrap</a></li>-->
+<!--            <li><a href="https://wrapbootstrap.com/?ref=bsw" target="_blank">WrapBootstrap</a></li>-->
+<!--          </ul>-->
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container" style="background: #f7f6f5;">
+    
+      <!-- Containers
+      ================================================== -->
+      <div class="bs-docs-section">
+
+
+        <div class="row">
+          <div class="col-lg-8">
+          	<div id="content">
+ <!-- Planet Loop Start -->          	
+<TMPL_LOOP Items>
+	<div class="hentry post">
+		<div class="postHeader">
+<TMPL_IF channel_face>
+	<span style="float: left; margin: 0 15px 10px 0;">
+	<img class="face" src="heads/<TMPL_VAR channel_face ESCAPE="HTML">" alt="">
+	</span>
+<TMPL_ELSE>
+	<span style="float: left; margin: 0 15px 10px 0;">
+	<img class="face" src="images/nobody.png" alt="">
+	</span>
+</TMPL_IF>
+
+			<h2 class="entry-title"><a href="<TMPL_VAR link ESCAPE="HTML">" title="<TMPL_VAR channel_title_plain ESCAPE="HTML">"><TMPL_VAR title></a></h2>
+
+<h3><TMPL_VAR channel_name></h3>
+
+			<div class="clearBoth"></div>
+		</div>
+		<div class="entry-content">
+			<TMPL_VAR content>
+			<div class="clearBoth"></div>
+		</div>
+		<div class="entry-utility">
+			<span class="cat-links"><a href="<TMPL_VAR link ESCAPE="HTML">"> on <TMPL_VAR date><TMPL_IF category> tagged with <TMPL_VAR category></TMPL_IF></a></span>
+		</div>
+	</div><!-- .post -->
+</TMPL_LOOP>
+						</div> <!-- content -->
+          </div> <!-- col -->
+          <div class="col-lg-4">
+<div id="secondary" class="aside main-aside">
+			<ul class="xoxo">
+				<li class="widgetcontainer widget_text">
+					<h3 class="widgettitle">Debian Indonesia</h3>
+						<p>
+							<a href="https://www.facebook.com/groups/debian.indonesia/"><i class="icon-facebook icon-3x"></i></a>
+							<a href="https://www.twitter.com/debian_id"><i class="icon-twitter icon-3x"></i></a>
+							<a href="https://plus.google.com/u/0/communities/115150692382019876984"><i class="icon-google-plus icon-3x"></i></a>
+							<a href="https://github.com/debian-id/"><i class="icon-github icon-3x"></i></a>
+							<a href="https://lists.debian.org/debian-user-indonesian/"><i class="icon-envelope icon-3x"></i></a>
+							<a href="https://www.facebook.com/debian.id"><i class="icon-thumbs-up-alt icon-3x"></i></a>
+						</p>
+				</li>
+				<li class="widgetcontainer widget_extended-categories">
+					<h3 class="widgettitle">Feeds</h3>
+					<ul>
+<TMPL_LOOP Channels>
+						<li>
+<!--							<a href="http://www.linuz.web.id/?feed=rss2" title="subscribe"><i class="icon-rss"></i></a> <a href="http://www.linuz.web.id" title="Linuz">Adnan Kashogi</a>-->
+							<a href="<TMPL_VAR url ESCAPE="HTML">" title="subscribe"><i class="icon-rss"></i></a> <a <TMPL_IF link>href="<TMPL_VAR link ESCAPE="HTML">" </TMPL_IF><TMPL_IF message>class="message" title="<TMPL_VAR message ESCAPE="HTML">"</TMPL_IF><TMPL_UNLESS message>title="<TMPL_VAR title_plain ESCAPE="HTML">"</TMPL_UNLESS>><TMPL_VAR name></a>
+</TMPL_LOOP>
+						</li>
+					</ul>
+				</li>
+				<li class="widgetcontainer widget_extended-categories">
+					<h3 class="widgettitle">Daftar Feed</h3>
+					<p>
+					Silahkan daftarkan blog anda di account <a href="https://github.com/debian-id/venus/issues"><i class="icon-github"></i>github</a> kami dengan membuat issue serta sertakan tautan feed blog anda.	
+					</p>
+					<h3 class="widgettitle">Kontribusi?</h3>
+					<div id="social-buttons" class="hidden-print">
+						<div class="container">
+							<ul class="unstyled inline">
+								<li>
+									<iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=debian-id&repo=venus&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+								</li>
+								<li>
+									<iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=debian-id&repo=venus&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="102px" height="20px"></iframe>
+								</li>
+								<li class="follow-btn">
+									<a href="https://twitter.com/debian_id" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @debian_id</a>
+								</li>
+								<li class="tweet-btn hidden-phone">
+									<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://planet.debian.or.id" data-text="Planet Debian Indonesia" data-counturl="http://planet.debian.or.id/" data-count="horizontal" data-via="debian-id" data-related="davegandy:Mahyuddin Susanto">Tweet</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+       		</div> <!--col-lg-4-->
+          </div> <!--row -->
+       </div> <!--bs-docs-section-->
+					
+                  
+      <footer>
+        <div class="row">
+          <div class="col-lg-12" style="background: white; font-size: 10px;">
+            
+            <ul class="list-unstyled">
+              <li class="pull-right"><a href="#top">Back to top</a></li>
+							<li><a href="https://www.facebook.com/groups/debian.indonesia/"><i class="icon-facebook icon-3x"></i></a></li>
+							<li><a href="https://www.twitter.com/debian_id"><i class="icon-twitter icon-3x"></i></a></li>
+							<li><a href="https://plus.google.com/u/0/communities/115150692382019876984"><i class="icon-google-plus icon-3x"></i></a></li>
+							<li><a href="https://github.com/debian-id/"><i class="icon-github icon-3x"></i></a></li>
+							<li><a href="https://lists.debian.org/debian-user-indonesian/"><i class="icon-envelope icon-3x"></i></a></li>
+							<li><a href="https://www.facebook.com/debian.id"><i class="icon-thumbs-up-alt icon-3x"></i></a></li>
+            </ul>
+            <p>
+						Blog entries aggregated on this page are owned by, and represent the opinion of the author.</p>
+            <p>Based on <a href="http://bootswatch.com/">bootwatch</a> by <a href="http://thomaspark.me">Thomas Park</a>.</p>
+            <p>Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License v2.0</a>.</p>
+            <p>Based on <a href="http://getbootstrap.com">Bootstrap</a>. Icons from <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>. Web fonts from <a href="http://www.google.com/webfonts">Google</a>.</p>
+
+          </div> <!-- col-lg-12 -->
+        </div> <!-- row -->
+        
+      </footer>
+    </div> <!--container -->
+
+
+
+
+    <script src="../bower_components/jquery/jquery.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../assets/js/bootswatch.js"></script>
+    <script type="text/javascript">
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+    </script>
+  </body>
+</html>							
